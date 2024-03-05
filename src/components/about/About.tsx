@@ -8,8 +8,9 @@ const About =() =>{
           <section className="ease-communication-overview e-pd-y-20">
   
           <div className="e-row">
+
   
-            {/* <div className="e-flex-md-6 e-mg-b-20 e-mg-b-0-md">
+            {/* abc <div className="e-flex-md-6 e-mg-b-20 e-mg-b-0-md">
   
               <div className="e-card ease-communication">
   
