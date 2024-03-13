@@ -109,36 +109,36 @@ const CheckCartList2 = () =>{
 
 
 
-    const [ customers_id, setcustomers_id ] = useState<number>(0) 
-    const [ customers_name, setcustomers_name ] = useState<string>('') 
-    const [ customers_email_address, setcustomers_email_address ] = useState<string>('') 
-    const [ billing_img_receipt, setbilling_img_receipt ] = useState<string>('') 
-    const [ orders_status, setorders_status ] = useState<number>(0) 
+    //const [ customers_id, setcustomers_id ] = useState<number>(0) 
+    // const [ customers_name, setcustomers_name ] = useState<string>('') 
+    // const [ customers_email_address, setcustomers_email_address ] = useState<string>('') 
+    // const [ billing_img_receipt, setbilling_img_receipt ] = useState<string>('') 
+    // const [ orders_status, setorders_status ] = useState<number>(0) 
     const [ orders_date_added, setorders_date_added ] = useState<string>('') 
     const [ orders_date_finished, setorders_date_finished ] = useState<string>('') 
     const [ last_modified, setlast_modified ] = useState<string>('') 
     const [ date_purchased, setdate_purchased ] = useState<string>('') 
-    const [ update_user, setupdate_user ] = useState<string>('') 
+    //const [ update_user, setupdate_user ] = useState<string>('') 
 
     //order products
 
-      const [ orders_products_id, setorders_products_id ] = useState<number>(0) 
+    //   const [ orders_products_id, setorders_products_id ] = useState<number>(0) 
 
-      const [ orders_id, setorders_id ] = useState<number>(0)   
+    //   const [ orders_id, setorders_id ] = useState<number>(0)   
 
-      const [ products_id, setproducts_id ] = useState<number>(0) 
+    //   const [ products_id, setproducts_id ] = useState<number>(0) 
   
-      const [ products_model, setproducts_model ] = useState<string>('') 
+    //   const [ products_model, setproducts_model ] = useState<string>('') 
   
-      const [ products_name, setproducts_name ] = useState<string>('')  //not null
+    //   const [ products_name, setproducts_name ] = useState<string>('')  //not null
   
-      const [ products_price, setproducts_price ] = useState<string>('')  //not null
+    //   const [ products_price, setproducts_price ] = useState<string>('')  //not null
   
-      const [ final_price, setfinal_price ] = useState<number>(0) //not null
+    //   const [ final_price, setfinal_price ] = useState<number>(0) //not null
   
-      const [ products_tax, setproducts_tax ] = useState<number>(0) //not null
+    //   const [ products_tax, setproducts_tax ] = useState<number>(0) //not null
   
-      const [ products_quantity, setproducts_quantity ] = useState<number>(0) //not null
+    //   const [ products_quantity, setproducts_quantity ] = useState<number>(0) //not null
 
 
           //    orders_id
@@ -178,28 +178,28 @@ const CheckCartList2 = () =>{
     const handelSaveOrder = async()=>{
         debugger  
         try{
-            setbilling_img_receipt('')
-            setorders_status(1)
-            setcustomers_name(username)
-            setcustomers_id(userId)
-            setorders_id(0)
-            setcustomers_email_address(usermail)
+            // setbilling_img_receipt('')
+            // setorders_status(1)
+            // setcustomers_name(username)
+            // setcustomers_id(userId)
+            // setorders_id(0)
+            // setcustomers_email_address(usermail)
 
             setlast_modified('')
             setdate_purchased('')
-            setupdate_user(username)
+            //setupdate_user(username)
             const jdata = JSON.stringify({             
-                orders_id: orders_id,
-                customers_id: customers_id,
-                customers_name: customers_name,
-                customers_email_address: customers_email_address,
-                billing_img_receipt: billing_img_receipt,
-                orders_status: orders_status,
+                orders_id: 0,
+                customers_id: userId,
+                customers_name: username,
+                customers_email_address: usermail,
+                billing_img_receipt: '',
+                orders_status: 1,
                 orders_date_added: orders_date_added,
                 orders_date_finished: orders_date_finished,
                 last_modified: last_modified,
                 date_purchased: date_purchased,
-                update_user: update_user                 
+                update_user: username                  
             })
             const res = await axios.post('/orders_basket/create/', jdata,{
                 headers: {
@@ -211,7 +211,7 @@ const CheckCartList2 = () =>{
      
             if(res.data?.success){
                localStorage.setItem("orderid",res.data?.fileId)
-               setorders_id(res.data?.fileId)
+               //setorders_id(res.data?.fileId)
                console.log(res.data?.fileId)
 
                 try{
@@ -241,27 +241,27 @@ const CheckCartList2 = () =>{
     const onSaveOrdersProducts = async (e:any , orders_id:number) =>{
         debugger
         try{
-            let sumprice = parseFloat(e.items.price) * e.qty
+            let sumprice = parseFloat(e.price) * e.qty
 
-            setorders_products_id(0)
-            setproducts_id(e.id)
-            setproducts_model(e.title)
-            setproducts_name(e.model)
-            setproducts_price(e.price)
-            setfinal_price(sumprice)
-            setproducts_tax(0)
-            setproducts_quantity(e.qty)
+            // setorders_products_id(0)
+            // setproducts_id(e.id)
+            // setproducts_model(e.title)
+            // setproducts_name(e.model)
+            // setproducts_price(e.price)
+            // setfinal_price(sumprice)
+            // setproducts_tax(0)
+            // setproducts_quantity(e.qty)
 
             const jdata = JSON.stringify({                                               
-                orders_products_id: orders_products_id,
+                orders_products_id: 0,
                 orders_id: orders_id,
-                products_id: products_id,
-                products_model: products_model,
-                products_name: products_name,
-                products_price: products_price,
-                final_price: final_price,
-                products_tax: products_tax,
-                products_quantity: products_quantity,            
+                products_id: e.id,
+                products_model: e.title,
+                products_name: e.model,
+                products_price: e.price,
+                final_price: sumprice,
+                products_tax: 0,
+                products_quantity: e.qty,          
             });
             const res = await axios.post('/orders_products/create/', jdata,{
                 headers: {

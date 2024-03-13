@@ -9,7 +9,7 @@ import { ORDERS_PRODUCTS_CUSTOMER } from '../models/orders.model'
 const tb:ORDERS_PRODUCTS_CUSTOMER[] =[];
 
 const CheckInvoice =() =>{
-  //debugger
+  debugger
   const data = useAppSelector((state) => state.orders_productscutomers.orders_products_cutomers)
   const [da, setDa] = useState<ORDERS_PRODUCTS_CUSTOMER[]>(tb)
 
@@ -141,7 +141,8 @@ const CheckInvoice =() =>{
  useEffect(() =>{
     if(datacounty.length > 0){
       if(dataaddress.length > 0){
-        let cname = datacounty[dataaddress[0].entry_country_id].countries_name
+        const thlist = datacounty.filter(e => e.countries_id === dataaddress[0].entry_country_id)
+        let cname =  thlist[0].countries_name
         setcountries_name(cname)
       }else{
         setcountries_name('')

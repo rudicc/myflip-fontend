@@ -10,7 +10,7 @@ import { DeleteProductstbl, UpdateProductstbl, fetchProductstbl } from '../../..
 //import { fetchProducts } from '../../../../store/features/productsSlice';
 import { DeleteProducts_to_categoriestbl, InsertProducts_to_categoriestbl } from '../../../../store/featurestbl/products_to_categories_tblSlice';
 import { DeleteProducts_descriptiontbl, InsertProducts_descriptiontbl, UpdateProducts_descriptiontbl } from '../../../../store/featurestbl/products_description_tblSlice';
-import Menubar from '../Menubar';
+//import Menubar from '../Menubar';
 import { fetchUploaded_filesPdf } from '../../../../store/features/uploaded_filesPdfSlice';
 
 
@@ -897,13 +897,14 @@ const [ categories_id, setcategories_id ] = useState<number>(0)
   }
 
   return (<>
+      {/* <Menubar /> */}
 
       <div className='details'>       
           <section className="ease-communication-overview e-pd-y-20">
   
           <div className="e-row">
       
-            <div className="e-flex-md-2 e-mg-b-20 e-mg-b-0-md e-card">
+            {/* <div className="e-flex-md-2 e-mg-b-20 e-mg-b-0-md e-card">
   
               <div className="e-card ease-communication">
   
@@ -925,7 +926,7 @@ const [ categories_id, setcategories_id ] = useState<number>(0)
   
               </div>
   
-            </div>
+            </div> */}
   
 
   

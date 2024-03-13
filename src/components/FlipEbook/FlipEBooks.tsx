@@ -37,7 +37,7 @@ function FlipEBooks() {
   return (
     <Fragment>
           <div className='details'>   
-          <iframe src={ebook} typeof="application/html" width={1450}  height={800}>
+          <iframe src={ebook} id="iframeEbook" typeof="application/html" width={1450}  height={800}>
 
           </iframe>
           </div>         

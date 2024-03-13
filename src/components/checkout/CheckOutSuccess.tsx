@@ -14,6 +14,8 @@ const CheckOutSuccess =() =>{
             data.map((i) =>{
               dispatch(delCart(i.products_id))
             })
+
+            localStorage.removeItem("orderid")
         }
     return "Ok!"
   }

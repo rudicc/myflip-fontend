@@ -31,11 +31,15 @@ debugger
                     password:  password                            
                 });
             const response = await axios.post('/auth/signin/', jdata,{
+                    method: "POST",	
                     headers: {
                         'Content-Type': 'application/json'
                     },          
                });
            
+              console.log(response)
+       
+
             //console.log(JSON.stringify(response?.data));
      
             if(response){
@@ -49,8 +53,8 @@ debugger
                     //     user: response?.data?.user,
                     //     uid: response?.data?.uid                         
                     // });   
-                    
-                    const kdata = email +" "+ response?.data?.uid + " " + response?.data?.user + " " + "U" ; 
+                     
+                    const kdata = email +" "+ response?.data?.uid + " " + response?.data?.user  + " " + "U" ; 
                     //let cda = bcrypt.hash(kdata , 10 );
                     // console.log(cda)                    
                     localStorage.setItem("tmbuser", kdata)               

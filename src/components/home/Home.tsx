@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Hero from './Hero/Hero'
 import Card from './Hero/Card'
 import Product from '../product/Product'
-import Banner from './banner/Banner'
+// import Banner from './banner/Banner'
 import { useAppDispatch } from '../../store/hooks'
 import { fetchProducts } from '../../store/features/productsSlice'
 // import { fetchMenutab } from '../../store/features/menutabSlice'
@@ -43,7 +43,7 @@ const Home = () => {
       <Card />
       <Topbook />
       <Product />
-      <Banner />
+      {/* <Banner /> */}
     </>
   )
 }

@@ -7,11 +7,11 @@ export const navlist = [
     path: "/",
   },
   {
-    text: "ร้านหนังสือ",
+    text: "หนังสือE-book",
     path: "/shop",
   },
   {
-    text: "ติดต่อสำนักพิมพ์",
+    text: "วิธีการสั่งซื้อ",
     path: "/about",
   },
   // {
