@@ -1,10 +1,13 @@
-import React, { BaseSyntheticEvent, useState } from 'react'
+import React, { BaseSyntheticEvent, useEffect, useState } from 'react'
 import { useAppSelector } from '../../store/hooks'
 import { UrlServer } from '../services'
 import axios from '../axios'
+//import { BiClipboard, BiPaperclip } from 'react-icons/bi'
+import { BsFillClipboard2CheckFill } from 'react-icons/bs'
 
-const CheckPayment =( imgqr:any ) =>{
 
+const CheckPayment =( {imgqr , qrid }:any ) =>{
+ debugger
   const data = useAppSelector((state) => state.orders_productscutomers.orders_products_cutomers)
 
   const [ receipts_image, setReceipts_image ] = useState<string>('') 
@@ -90,6 +93,11 @@ const CheckPayment =( imgqr:any ) =>{
     //dispatch(fetchUploaded_files());
   }
 
+  //const [dataqrid , setDataQrID] = useState('');
+
+  useEffect(()=>{
+    //setDataQrID(qrid);
+  })
   return (
     <>
       {/* <div className='details'>       
@@ -165,14 +173,18 @@ const CheckPayment =( imgqr:any ) =>{
               <div className="e-card ease-communication">
   
                 <div className="e-card__header">
-                  <span className="e-card__title e-fw-bld">qr ชำระเงิน</span>
+                  <span className="e-card__title e-fw-bld">qr ชำระเงิน ธ.กรุงไทย.*</span>
   
                   <div className="e-d-flex e-align-center">
-                    <span className="e-fs-12 ease-faded-text">Refreshed</span>
+                    <span className="e-fs-15 ease-faded-text">รหัส:</span>   
+                    <input type="text" value={`${qrid}`}   className="e-fs-20 e-form__input e-pd-l-10"/>
                     <div className="e-mg-l-10">
-                      <button type="button" className="e-btn-icon"><i className="ri-refresh-line"></i></button>
+                      <button type="button" className="e-btn-icon"   onClick={async () =>{
+                        await navigator.clipboard.writeText(qrid)
+                        alert('Copied! : ' + qrid)
+                      }} ><BsFillClipboard2CheckFill/></button>
                     </div>
-                  </div>
+                  </div> 
                 </div>
   
                 <div className="e-card__body e-pd-0">
@@ -194,7 +206,7 @@ const CheckPayment =( imgqr:any ) =>{
   
                             <div className="e-mg-r-10">
                               <div className="">
-                                <img src={imgqr.imgqr} alt="" className="" /></div>
+                                <img src={imgqr} alt="" className="" /></div>
                             </div>
   
       

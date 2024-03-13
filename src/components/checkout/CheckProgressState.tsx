@@ -26,6 +26,7 @@ const CheckProgressState =( keyid:any ) =>{
     //img qrpayment 
 
     const [dataqr, setDataQr] = useState('') 
+    const [dataqrid, setDataQrID] = useState('') 
 
     //List page 
     const [cart, setCart] = useState(false)
@@ -120,7 +121,7 @@ const CheckProgressState =( keyid:any ) =>{
         return 0
     }
     const onNext =()=>{
-        debugger     
+        //debugger     
               
         var state:number = valuestate
         // Disables 'next' button if end of steps
@@ -226,14 +227,16 @@ const CheckProgressState =( keyid:any ) =>{
             state =0
             setShowList0(false)
         } 
-        debugger 
+        //debugger 
         let k:string =  (keyid.keyid.toString());
         if(k == "1"){
             setCart(true)
-            setDataQr(imgQr1)     
+            setDataQr(imgQr1)  
+            setDataQrID('0700043861')   
         }else{
             setCart(false)
             setDataQr(imgQr2)
+            setDataQrID('0670112747')   
         }
   
       })
@@ -375,7 +378,7 @@ const CheckProgressState =( keyid:any ) =>{
                 <div id='d3'  hidden={showlist3} className="e-card ease-communication">
                         <Fragment>
                         
-                            <CheckPayment imgqr={dataqr} />
+                            <CheckPayment imgqr={dataqr} qrid={dataqrid} />
                                     
                         </Fragment>
                 </div>

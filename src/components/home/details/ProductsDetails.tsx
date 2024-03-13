@@ -64,7 +64,15 @@ const ProductsDetails = () => {
           {data.map((item) => (
             <div className='details_content'>
               <div className='details_content_img'>
-                <img src={ UrlServer + '/' + item.products_image} alt='' />
+                {item.products_pdf?(
+
+                      <iframe src={UrlServer + "/pdf/productfile/" + item.products_pdf.replace(".pdf", "") + "/bookshow.html"} width={650} height={750}></iframe>            
+                ):(
+
+                  <img src={ UrlServer + '/' + item.products_image} alt='' /> 
+                )}
+                {/* <img src={ UrlServer + '/' + item.products_image} alt='' /> */}
+
               </div>
               <div className='details_content_detail'>
                 <h1>{item.products_model}</h1>

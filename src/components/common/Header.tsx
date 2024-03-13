@@ -218,7 +218,7 @@ const handledata = () =>{
                             ad?(                                 
                               <li className="dropdown-list">
       
-                                <Link to='/mystore' className='dropdown-link e-d-flex e-align-center e-pd-x-20 e-pd-y-10'>
+                                <Link to='/products' className='dropdown-link e-d-flex e-align-center e-pd-x-20 e-pd-y-10'>
                                     <i className="ri-task-line e-fs-16 e-mg-r-10"></i>
                                     <span className="e-fs-14 e-fw-bld">ร้านค้าของฉัน</span>
                                   

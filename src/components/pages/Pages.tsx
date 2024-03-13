@@ -25,6 +25,7 @@ import { PayPalScriptProvider} from "@paypal/react-paypal-js"; //, PayPalButtons
 import Checkout from "../checkout/Checkout"
 import FlipEBooks from "../FlipEbook/FlipEBooks"
 import FileDownload from "../dowloaded/FileDownload"
+import UploadFileScript from "../FlipEbook/UploadFileScript"
 
 
 export const Pages = () => {
@@ -70,6 +71,7 @@ export const Pages = () => {
 
             <Route  path='/download/:pid' element={ <FileDownload />}></Route>
             <Route  path='/openflip/:pid' element={ <FlipEBooks />}></Route>
+            <Route  path='/uploadfilescript' element={ <UploadFileScript />}></Route>
 
             <Route  path='/login' element={ <LogIn />}></Route>
             <Route  path='/signup' element={ <SignUp />}></Route>
