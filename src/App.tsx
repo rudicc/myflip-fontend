@@ -32,9 +32,9 @@ const App = () => {
 const [chkuser ,setchkuser] = useState(false)
 const  ValidUser = async ()  => {
   try{
-      const token =  CookieService.get("chopbook-access_token")
-      //debugger
-      if(token !=""){
+      const token:any =  CookieService.get("chopbook-access_token")
+      debugger
+      if(token.length > 0){
 
 
       const res = await fetch(UrlServer + "/auth/validate/", {        

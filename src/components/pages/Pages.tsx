@@ -26,12 +26,13 @@ import Checkout from "../checkout/Checkout"
 import FlipEBooks from "../FlipEbook/FlipEBooks"
 import FileDownload from "../dowloaded/FileDownload"
 import UploadFileScript from "../FlipEbook/UploadFileScript"
+import NotFound from "./NotFound"
 
 
 export const Pages = () => {
  
   const initialOptions = {
-    clientId: "ARIA9xfrLWinC7Ytp9qOKlzRpwZGoBcUnxqBA-vyTe0RlCiR0vRVpURyXe3TXw_Ext_Qzga5Q-7t1nws",
+    clientId: "",
     currency: "USD",
     intent: "capture",
   };
@@ -76,6 +77,8 @@ export const Pages = () => {
             <Route  path='/login' element={ <LogIn />}></Route>
             <Route  path='/signup' element={ <SignUp />}></Route>
             <Route  path='/logout' element={ <LogOut />}></Route>
+
+            <Route path="*" element={ <NotFound />}></Route>
 
           </Routes>          
          <Footer/>            
