@@ -7,6 +7,7 @@ import { store } from  './store/store'
 import { useEffect, useState } from "react"
 import { UrlServer } from "./components/services"
 import CookieService from "./components/services/CookieService"
+import { chkUndefined } from "./functions/Utility"
 //import { useAppDispatch } from "./store/hooks"
 
 
@@ -31,10 +32,11 @@ const App = () => {
 
 const [chkuser ,setchkuser] = useState(false)
 const  ValidUser = async ()  => {
+
   try{
       const token:any =  CookieService.get("chopbook-access_token")
       debugger
-      if(token.length > 0){
+      if(!chkUndefined(token)){
 
 
       const res = await fetch(UrlServer + "/auth/validate/", {        

@@ -1,5 +1,5 @@
  
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes , Navigate} from "react-router-dom"
 import Header from '../common/Header'
 import Footer from '../common/Footer'
 import Home from '../home/Home'
@@ -20,27 +20,27 @@ import About from "../about/About"
 import Contact from "../contact/Contact"
 import Dashboard from "../dashboard/Dashboard"
 import ProductsDetails from "../home/details/ProductsDetails"
-import { PayPalScriptProvider} from "@paypal/react-paypal-js"; //, PayPalButtons 
+//import { PayPalScriptProvider} from "@paypal/react-paypal-js"; //, PayPalButtons 
 // import Baskets from "../home/basket/Baskets"
 import Checkout from "../checkout/Checkout"
 import FlipEBooks from "../FlipEbook/FlipEBooks"
 import FileDownload from "../dowloaded/FileDownload"
 import UploadFileScript from "../FlipEbook/UploadFileScript"
-import NotFound from "./NotFound"
+//import NotFound from "./NotFound"
 
 
 export const Pages = () => {
  
-  const initialOptions = {
-    clientId: "",
-    currency: "USD",
-    intent: "capture",
-  };
+  // const initialOptions = {
+  //   clientId: "",
+  //   currency: "USD",
+  //   intent: "capture",
+  // };
 
   return (
     <>
-     <PayPalScriptProvider options={initialOptions}>
-
+     {/* <PayPalScriptProvider options={initialOptions}>
+     </PayPalScriptProvider>  */}
 
         <Router>  
           <Header />
@@ -78,13 +78,13 @@ export const Pages = () => {
             <Route  path='/signup' element={ <SignUp />}></Route>
             <Route  path='/logout' element={ <LogOut />}></Route>
 
-            <Route path="*" element={ <NotFound />}></Route>
+            <Route path="/*" element={ <Navigate to="/" />}></Route>
 
           </Routes>          
          <Footer/>            
         </Router>     
 
-    </PayPalScriptProvider>          
+            
     </>
   )
 }

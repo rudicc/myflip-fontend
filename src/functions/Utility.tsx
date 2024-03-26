@@ -60,3 +60,12 @@ export const GetUsersList = (i:any) => {
   }
 return value;
 }
+
+export const chkUndefined = (values:any) =>{
+
+  if(values === undefined){
+    return true;
+  }else{
+    return false;
+  }
+}

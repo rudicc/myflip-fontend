@@ -1612,6 +1612,10 @@ const [ categories_id, setcategories_id ] = useState<number>(0)
                       </div>
 
 
+
+                      <div className="e-form__group e-d-flex e-align-center e-pd-l-20 e-d-flex"> 
+                         <Link to={`/uploadfilescript`} >...</Link>    
+                      </div>
                     </div>
                             
                   </div>  
